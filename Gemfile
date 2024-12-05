@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'cocoapods', '~> 1.14'
-gem 'fastlane', '~> 2.223', '>= 2.223.1'
+gem 'fastlane', '~> 2.225'
 gem 'rake'
 gem 'rubocop', '~> 1.60'
 gem 'rubocop-rake', '~> 0.6'

@@ -1,6 +1,16 @@
 agents:
   queue: macos-large
 
+cache:
+  - name: bundle-cache
+    paths:
+      - "vendor/bundle"
+    size: "20g"
+  - name: derived-data
+    paths:
+      - "DerivedData"
+    size: "20g"
+
 steps:
   - label: ":ruby: install dependencies"
     key: install-dependencies-ruby

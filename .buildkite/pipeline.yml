@@ -19,6 +19,7 @@ steps:
       - install-dependencies-ruby
 
   - label: ":macos: test"
+    key: test-apple
     command: .buildkite/scripts/test.sh
     depends_on:
       - build-apple
@@ -28,6 +29,6 @@ steps:
   - label: ":macos: :camera: screenshots"
     command: .buildkite/scripts/screenshots.sh
     depends_on:
-      - build-apple
+      - test-apple
     artifact_paths:
       - "screenshots/**/*.png"

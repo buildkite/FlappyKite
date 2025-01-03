@@ -28,7 +28,7 @@ steps:
 
   - label: ":bazel: build"
     key: bazel-build
-    command: ".buildkite/scripts/build_bazel.sh"
+    command: ".buildkite/scripts/bazel_build.sh"
     cache:
       paths:
         - ".cache"

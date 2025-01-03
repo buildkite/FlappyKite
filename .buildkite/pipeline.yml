@@ -28,7 +28,7 @@ steps:
 
   - label: ":bazel: build"
     key: bazel-build
-    command: "bazelisk build //FlappyKite:FlappyKite"
+    command: .buildkite/scripts/bazel-build.sh
     cache:
       paths:
         - ".cache"
@@ -39,7 +39,7 @@ steps:
     key: bazel-test
     depends_on:
       - bazel-build
-    command: "bazelisk build //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
+    command: .buildkite/scripts/bazel-test.sh
     cache:
       paths:
         - ".cache"

@@ -28,7 +28,7 @@ steps:
 
   - label: ":bazel: build"
     key: bazel-build
-    command: "bazelisk build //FlappyKite:FlappyKite"
+    command: ".buildkite/scripts/build_bazel.sh"
     cache:
       paths:
         - ".cache"

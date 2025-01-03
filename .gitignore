@@ -44,5 +44,5 @@ fastlane/test_output/report.junit
 /screenshots/*
 
 # Bazel related paths
-bazel-*
+/bazel-*
 .build

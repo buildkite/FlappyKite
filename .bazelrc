@@ -2,3 +2,7 @@ common --show_timestamps --enable_platform_specific_config --experimental_conven
 
 build --cxxopt='-std=c++14'
 build --action_env SENTRY_DSN_PATH= --action_env SENTRY_DSN_HOST=
+
+build:buildkite --experimental_remote_downloader_local_fallback=false
+query:buildkite --experimental_remote_downloader_local_fallback=false
+fetch:buildkite --experimental_remote_downloader_local_fallback=false

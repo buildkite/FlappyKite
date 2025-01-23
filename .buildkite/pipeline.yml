@@ -63,3 +63,6 @@ steps:
           bazel-config: "buildkite"
           output-filename: ".bazelrc-generated"
           path: "pipelines/flappykite/bazel"
+    artifact_paths:
+      - "./bazel-out/darwin_arm64-fastbuild/testlogs/FlappyKiteUITests/FlappyKiteUITests/test.log"
+      - "./bazel-out/darwin_arm64-fastbuild/testlogs/FlappyKiteTests/FlappyKiteTests/test.log"

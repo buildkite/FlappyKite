@@ -38,7 +38,7 @@ steps:
     #   name: "bazel"
     plugins:
       - aws-assume-role-with-web-identity#v1.1.0:
-          role-arn: "arn:aws:iam::724772075326:role/oidc-flappykite-secretsmanager"
+          role-arn: "$ROLE_ARN"
       - aws-secretsmanager-to-bazelrc#main:
           bazel-config: "buildkite"
           output-filename: ".bazelrc-generated"
@@ -58,7 +58,7 @@ steps:
     #   name: "bazel"
     plugins:
       - aws-assume-role-with-web-identity#v1.1.0:
-          role-arn: "arn:aws:iam::724772075326:role/oidc-flappykite-secretsmanager"
+          role-arn: "$ROLE_ARN"
       - aws-secretsmanager-to-bazelrc#main:
           bazel-config: "buildkite"
           output-filename: ".bazelrc-generated"

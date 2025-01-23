@@ -31,11 +31,11 @@ steps:
     command: "bazelisk --bazelrc=.bazelrc --bazelrc=.bazelrc-generated build --config=buildkite //FlappyKite:FlappyKite"
     env:
       AWS_REGION: us-east-1
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
+    # cache:
+    #   paths:
+    #     - ".cache"
+    #   size: "20g"
+    #   name: "bazel"
     plugins:
       - aws-assume-role-with-web-identity#v1.1.0:
           role-arn: "arn:aws:iam::724772075326:role/oidc-flappykite-secretsmanager"
@@ -51,11 +51,11 @@ steps:
     command: "bazelisk --bazelrc=.bazelrc --bazelrc=.bazelrc-generated test --config=buildkite //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
     env:
       AWS_REGION: us-east-1
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
+    # cache:
+    #   paths:
+    #     - ".cache"
+    #   size: "20g"
+    #   name: "bazel"
     plugins:
       - aws-assume-role-with-web-identity#v1.1.0:
           role-arn: "arn:aws:iam::724772075326:role/oidc-flappykite-secretsmanager"

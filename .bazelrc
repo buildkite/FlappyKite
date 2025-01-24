@@ -1,4 +1,4 @@
-common --show_timestamps --enable_platform_specific_config --noremote_upload_local_results
+common --show_timestamps --enable_platform_specific_config --noremote_upload_local_results --disk_cache=.cache
 # --experimental_convenience_symlinks=ignore
 
 build --cxxopt='-std=c++14'

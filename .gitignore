@@ -46,3 +46,6 @@ fastlane/test_output/report.junit
 # Bazel related paths
 bazel-*
 .build
+log
+.cache
+*.log

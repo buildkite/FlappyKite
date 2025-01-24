@@ -43,6 +43,9 @@ steps:
           bazel-config: "buildkite"
           output-filename: ".bazelrc-generated"
           path: "pipelines/flappykite/bazel"
+    artifact_paths:
+      - "./bazel-bin/FlappyKite/FlappyKite.ipa"
+      - "exec1.log"
 
   # - label: ":bazel: test"
   #   key: bazel-test

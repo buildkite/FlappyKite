@@ -1,4 +1,13 @@
-common --show_timestamps --enable_platform_specific_config --experimental_convenience_symlinks=ignore
+common --show_timestamps --enable_platform_specific_config --noremote_upload_local_results --disk_cache=.cache --execution_log_compact_file=exec1.log
+# --experimental_convenience_symlinks=ignore
 
 build --cxxopt='-std=c++14'
 build --action_env SENTRY_DSN_PATH= --action_env SENTRY_DSN_HOST=
+
+build:buildkite --experimental_remote_downloader_local_fallback=false
+query:buildkite --experimental_remote_downloader_local_fallback=false
+fetch:buildkite --experimental_remote_downloader_local_fallback=false
+
+common:upload --disk_cache=
+common:upload --remote_upload_local_results
+common:buildkite --config=upload

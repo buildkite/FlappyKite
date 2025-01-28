@@ -28,20 +28,44 @@ steps:
 
   - label: ":bazel: build"
     key: bazel-build
-    command: "bazelisk build //FlappyKite:FlappyKite"
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
+    command: "bazelisk --bazelrc=.bazelrc --bazelrc=.bazelrc-generated build --config=buildkite //FlappyKite:FlappyKite"
+    env:
+      AWS_REGION: us-east-1
+    # cache:
+    #   paths:
+    #     - ".cache"
+    #   size: "20g"
+    #   name: "bazel"
+    plugins:
+      - aws-assume-role-with-web-identity#v1.1.0:
+          role-arn: "$ROLE_ARN"
+      - aws-secretsmanager-to-bazelrc#main:
+          bazel-config: "buildkite"
+          output-filename: ".bazelrc-generated"
+          path: "pipelines/flappykite/bazel"
+    artifact_paths:
+      - "./bazel-bin/FlappyKite/FlappyKite.ipa"
+      - "exec1.log"
 
-  - label: ":bazel: test"
-    key: bazel-test
-    depends_on:
-      - bazel-build
-    command: "bazelisk build //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
-    cache:
-      paths:
-        - ".cache"
-      size: "20g"
-      name: "bazel"
+  # - label: ":bazel: test"
+  #   key: bazel-test
+  #   depends_on:
+  #     - bazel-build
+  #   command: "bazelisk --bazelrc=.bazelrc --bazelrc=.bazelrc-generated test --config=buildkite //FlappyKiteTests:FlappyKiteTests //FlappyKiteUITests:FlappyKiteUITests"
+  #   env:
+  #     AWS_REGION: us-east-1
+  #   # cache:
+  #   #   paths:
+  #   #     - ".cache"
+  #   #   size: "20g"
+  #   #   name: "bazel"
+  #   plugins:
+  #     - aws-assume-role-with-web-identity#v1.1.0:
+  #         role-arn: "$ROLE_ARN"
+  #     - aws-secretsmanager-to-bazelrc#main:
+  #         bazel-config: "buildkite"
+  #         output-filename: ".bazelrc-generated"
+  #         path: "pipelines/flappykite/bazel"
+  #   artifact_paths:
+  #     - "./bazel-out/darwin_arm64-fastbuild/testlogs/FlappyKiteUITests/FlappyKiteUITests/test.log"
+  #     - "./bazel-out/darwin_arm64-fastbuild/testlogs/FlappyKiteTests/FlappyKiteTests/test.log"

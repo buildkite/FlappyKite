@@ -6,6 +6,11 @@ steps:
     key: install-dependencies-ruby
     command: .buildkite/scripts/install-dependencies.sh
 
+  - label: ":apple: list devices"
+    command: xcrun simctl list devices
+    depends_on:
+      - install-dependencies-ruby
+
   - label: ":macos: build"
     key: build-apple
     command: .buildkite/scripts/build.sh

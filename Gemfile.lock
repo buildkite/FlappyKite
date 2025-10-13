@@ -282,8 +282,9 @@ GEM
     rubocop-ast (1.47.1)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
-    rubocop-rake (0.6.0)
-      rubocop (~> 1.0)
+    rubocop-rake (0.7.1)
+      lint_roller (~> 1.1)
+      rubocop (>= 1.72.1)
     ruby-macho (2.5.1)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
@@ -347,7 +348,7 @@ DEPENDENCIES
   ostruct
   rake
   rubocop (~> 1.81)
-  rubocop-rake (~> 0.6)
+  rubocop-rake (~> 0.7)
 
 BUNDLED WITH
    2.7.2
